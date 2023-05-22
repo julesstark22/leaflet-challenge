@@ -19,13 +19,16 @@ The main functionality of the project is implemented in the static/js/logic.js f
 
 Data Loading:
 The earthquake data is loaded using D3's d3.json function, fetching the GeoJSON file from the USGS API.
+
 Map Creation:
 The Leaflet map is created using the L.map function and set to the initial view coordinates.
 A tile layer from OpenStreetMap is added to the map using the L.tileLayer function.
+
 Visualization:
 The color and radius of each circle marker representing an earthquake are determined based on its magnitude and depth.
 For each earthquake feature in the data, a circle marker is created using L.circleMarker and added to the map.
 A popup with information about each earthquake is bound to the marker using the bindPopup function.
+
 Legend:
 A legend is added to the bottom right of the map using the L.control function.
 The legend displays color-coded ranges of depths and their corresponding labels.
