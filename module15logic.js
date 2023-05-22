@@ -1,16 +1,16 @@
-// load the data
+// Load the data
 d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson')
   .then(data => {
-    // create the map
+    // Create the map
     const map = L.map('map').setView([37.8, -96], 4);
 
-    // add a tile layer to the map
+    // Add a tile layer to the map
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
       maxZoom: 18
     }).addTo(map);
 
-    // define a function to get the color based on the depth of the earthquake
+    // Define a function to get the color based on the depth of the earthquake
     const getColor = depth => {
       if (depth > 90) return '#FF0000';
       if (depth > 70) return '#FF6600';
@@ -20,10 +20,10 @@ d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       return '#00FF00';
     };
 
-    // define a function to get the radius based on the magnitude of the earthquake
+    // Define a function to get the radius based on the magnitude of the earthquake
     const getRadius = magnitude => magnitude * 4;
 
-    // add a circle marker for each earthquake
+    // Add a circle marker for each earthquake
     data.features.forEach(feature => {
       const coordinates = feature.geometry.coordinates;
       const magnitude = feature.properties.mag;
@@ -38,7 +38,7 @@ d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         .addTo(map);
     });
 
-    // add a legend to the map
+    // Add a legend to the map
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend');
