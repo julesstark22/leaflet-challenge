@@ -1,19 +1,36 @@
 # leaflet-challenge
-Earthquake Mapper
+This project is a web-based visualization of earthquakes using Leaflet.js and D3.js. It retrieves earthquake data from the USGS (United States Geological Survey) API and displays it on an interactive map. Each earthquake is represented by a circle marker with varying size and color based on its magnitude and depth.
 
-This code retrieves earthquake data from the USGS website, saves it to a JSON file, and creates an interactive map using the Folium library. The map displays markers for each earthquake with the magnitude and depth information in a popup.
+Getting Started
+To run the application, follow these steps:
 
-Libraries Used
+Open the index.html file in a web browser.
+The map will be displayed on the page, showing the locations of recent earthquakes.
+Dependencies
+The project relies on the following libraries:
 
-The code uses the following libraries:
+Leaflet.js (v1.6.0): An open-source JavaScript library for interactive maps.
+Leaflet CSS
+Leaflet JS
+D3.js (v5): A powerful JavaScript library for data visualization.
+D3 JavaScript
+Code Overview
+The main functionality of the project is implemented in the static/js/logic.js file. Here is an overview of the code:
 
-json: to handle JSON data
-folium: to create interactive maps
-requests: to retrieve data from the USGS website
+Data Loading:
+The earthquake data is loaded using D3's d3.json function, fetching the GeoJSON file from the USGS API.
+Map Creation:
+The Leaflet map is created using the L.map function and set to the initial view coordinates.
+A tile layer from OpenStreetMap is added to the map using the L.tileLayer function.
+Visualization:
+The color and radius of each circle marker representing an earthquake are determined based on its magnitude and depth.
+For each earthquake feature in the data, a circle marker is created using L.circleMarker and added to the map.
+A popup with information about each earthquake is bound to the marker using the bindPopup function.
+Legend:
+A legend is added to the bottom right of the map using the L.control function.
+The legend displays color-coded ranges of depths and their corresponding labels.
+CSS Styling
+The project includes a custom CSS file (static/css/style.css) to define styles for the HTML elements used in the application.
 
-How to Use
-
-Run the code to retrieve earthquake data from the USGS website, save it to a JSON file, and create an interactive map.
-Open the earthquake_map.html file in a web browser to view the map.
-The markers represent earthquakes and the color of each marker indicates its depth. The legend at the bottom left corner explains the color coding.
-Click on each marker to view the magnitude and depth information in a popup.
+Acknowledgments
+This project was created as a demonstration of using Leaflet.js and D3.js for interactive data visualization. The earthquake data is sourced from the USGS API.
